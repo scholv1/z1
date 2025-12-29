@@ -1,60 +1,105 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Video</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Video</title>
 
-<style>
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  background: black;
-}
+  <style>
+    body {
+      margin: 0;
+      background: #0b0b0f;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+    }
 
-#wrap {
-  position: fixed;
-  inset: 0;
-}
+    .wrap {
+      width: 100%;
+      max-width: 520px;
+      padding: 10px;
+    }
 
-iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
+    .box {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      background: #000;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,.6);
+    }
 
-#btn {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: red;
-  color: white;
-  font-size: 20px;
-  font-weight: bold;
-  padding: 16px 30px;
-  border-radius: 10px;
-  z-index: 999;
-}
-</style>
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0,0,0,0.05);
+      z-index: 5;
+      cursor: pointer;
+    }
+
+    .play {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: red;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,.6);
+    }
+
+    .triangle {
+      width: 0;
+      height: 0;
+      border-top: 14px solid transparent;
+      border-bottom: 14px solid transparent;
+      border-left: 24px solid white;
+      margin-left: 5px;
+    }
+
+    .text {
+      position: absolute;
+      bottom: 12px;
+      width: 100%;
+      text-align: center;
+      color: #fff;
+      font-size: 13px;
+      opacity: 0.9;
+    }
+  </style>
 </head>
 
 <body>
 
-<div id="wrap">
-  <iframe 
-    src="https://streamable.com/e/ID_AQUI"
-    allowfullscreen>
-  </iframe>
+<div class="wrap">
+  <div class="box">
+    <iframe 
+      id="video"
+      src="https://streamable.com/e/bzkq2d"
+      allow="autoplay; fullscreen"
+      allowfullscreen>
+    </iframe>
 
-  <a id="btn"
-     href="https://www.effectivegatecpm.com/jcnphaa86?key=d0fc631080e657daeea4ddb34e8c5fa0"
-     target="_blank">
-     ▶ VER VIDEO
-  </a>
+    <div class="overlay" id="overlay">
+      <div class="play">
+        <div class="triangle"></div>
+      </div>
+      <div class="text">Toca para reproducir</div>
+    </div>
+  </div>
 </div>
 
-</body>
-</html>
+<script>
+  const adLink = "https://www.effectivegatecpm.com/jcnphaa86?key=d
