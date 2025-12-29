@@ -26,16 +26,17 @@ html, body {
   width: 100%;
   height: 100%;
   border: none;
+  z-index: 1;
 }
 
-/* BOTÓN INICIAL */
+/* BOTÓN */
 #overlay {
   position: absolute;
   inset: 0;
+  z-index: 10;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 10;
   cursor: pointer;
 }
 
@@ -47,14 +48,6 @@ html, body {
   border-radius: 10px;
   font-weight: bold;
   animation: pulse 1.2s infinite;
-}
-
-/* OVERLAY INVISIBLE PARA SEGUNDO CLICK */
-#ghost {
-  position: absolute;
-  inset: 0;
-  z-index: 5;
-  display: none;
 }
 
 @keyframes pulse {
@@ -76,40 +69,30 @@ html, body {
     allow="autoplay"
   ></iframe>
 
-  <!-- PRIMER CLICK -->
   <div id="overlay">
     <div id="btn">▶ VER VIDEO</div>
   </div>
 
-  <!-- SEGUNDO CLICK INVISIBLE -->
-  <div id="ghost"></div>
-
 </div>
 
 <script>
-let firstClick = false;
-let secondClick = false;
-
-const adLink = "https://www.effectivegatecpm.com/jcnphaa86?key=d0fc631080e657daeea4ddb34e8c5fa0";
-
+let clicked = false;
 const overlay = document.getElementById("overlay");
-const ghost = document.getElementById("ghost");
 
-overlay.addEventListener("click", () => {
-  if (!firstClick) {
-    window.open(adLink, "_blank");
-    firstClick = true;
-    overlay.style.display = "none";
-    ghost.style.display = "block";
-  }
-});
+overlay.addEventListener("click", function () {
+  if (clicked) return;
 
-ghost.addEventListener("click", () => {
-  if (!secondClick) {
-    window.open(adLink, "_blank");
-    secondClick = true;
-    ghost.style.display = "none";
-  }
+  clicked = true;
+
+  // abrir anuncio
+  window.open(
+    "https://www.effectivegatecpm.com/jcnphaa86?key=d0fc631080e657daeea4ddb34e8c5fa0",
+    "_blank"
+  );
+
+  // quitar overlay completamente
+  overlay.style.pointerEvents = "none";
+  overlay.style.display = "none";
 });
 </script>
 
