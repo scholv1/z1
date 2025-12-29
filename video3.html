@@ -31,10 +31,9 @@ html, body {
   position: absolute;
   inset: 0;
   display: flex;
-  align-items: center;
   justify-content: center;
-  background: transparent;
-  z-index: 9999;
+  align-items: center;
+  z-index: 10;
 }
 
 #btn {
@@ -63,37 +62,13 @@ html, body {
     id="video"
     src="https://mxdrop.to/e/67r1nn46tv4kvv"
     allowfullscreen
-    allow="autoplay"
   ></iframe>
 
-  <div id="overlay">
+  <div id="overlay" onclick="window.location.href='https://www.effectivegatecpm.com/jcnphaa86?key=d0fc631080e657daeea4ddb34e8c5fa0'">
     <div id="btn">▶ VER VIDEO</div>
   </div>
 
 </div>
-
-<script>
-const overlay = document.getElementById("overlay");
-
-// Si ya abrió antes, no mostrar botón
-if (sessionStorage.getItem("clickedOnce")) {
-  overlay.style.display = "none";
-}
-
-// Al hacer clic
-overlay.addEventListener("click", () => {
-  sessionStorage.setItem("clickedOnce", "1");
-
-  // abrir anuncio
-  window.open(
-    "https://www.effectivegatecpm.com/jcnphaa86?key=d0fc631080e657daeea4ddb34e8c5fa0",
-    "_blank"
-  );
-
-  // ocultar botón
-  overlay.style.display = "none";
-});
-</script>
 
 </body>
 </html>
