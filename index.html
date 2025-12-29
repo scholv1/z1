@@ -4,62 +4,69 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Video</title>
+
 <style>
-html, body {
+body {
   margin: 0;
-  padding: 0;
-  height: 100%;
   background: black;
 }
 
-#wrap {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-}
-
 #overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0,0,0,0.35);
+  z-index: 9999;
 }
 
-#overlay a {
+#btn {
   background: red;
   color: white;
-  font-size: 20px;
-  padding: 16px 30px;
-  text-decoration: none;
-  border-radius: 8px;
+  font-size: 22px;
   font-weight: bold;
+  padding: 20px 30px;
+  border-radius: 10px;
+  text-decoration: none;
+  animation: pulse 1.2s infinite;
 }
-iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
 }
 </style>
 </head>
 
 <body>
 
-<div id="wrap">
-  <div id="overlay">
-    <a href="https://www.effectivegatecpm.com/kvfjha10t?key=e6322657b6ac45058ab92a74dcb1938a" target="_blank">
-      ▶ VER VIDEO COMPLETO
-    </a>
-  </div>
-
-  <iframe 
-    src="https://streamable.com/e/vn5ufd"
-    allow="autoplay; fullscreen"
-    allowfullscreen>
-  </iframe>
+<!-- BOTÓN -->
+<div id="overlay">
+  <a id="btn" href="https://www.effectivegatecpm.com/kvfjha10t?key=e6322657b6ac45058ab92a74dcb1938a" target="_blank">
+    ▶ VER VIDEO COMPLETO
+  </a>
 </div>
+
+<!-- VIDEO -->
+<iframe 
+  src="https://streamable.com/vn5ufd" 
+  width="100%" 
+  height="100%" 
+  frameborder="0" 
+  allowfullscreen
+  style="position:fixed; top:0; left:0; width:100%; height:100%; border:none;">
+</iframe>
+
+<script>
+document.getElementById("btn").onclick = function () {
+  document.getElementById("overlay").style.display = "none";
+};
+</script>
 
 </body>
 </html>
