@@ -9,9 +9,8 @@
 html, body {
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 100%;
   background: black;
+  height: 100%;
 }
 
 #container {
@@ -21,7 +20,6 @@ html, body {
 }
 
 #video {
-  position: absolute;
   width: 100%;
   height: 100%;
   border: none;
@@ -30,10 +28,10 @@ html, body {
 #overlay {
   position: absolute;
   inset: 0;
-  z-index: 9999;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  z-index: 10;
 }
 
 #btn {
@@ -42,14 +40,6 @@ html, body {
   font-size: 22px;
   padding: 18px 30px;
   border-radius: 10px;
-  font-weight: bold;
-  animation: pulse 1.2s infinite;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
 }
 </style>
 </head>
@@ -61,28 +51,19 @@ html, body {
   <iframe
     id="video"
     src="https://mxdrop.to/e/67r1nn46tv4kvv"
-    allowfullscreen
-    allow="autoplay"
+    allow="autoplay; fullscreen"
   ></iframe>
 
   <div id="overlay">
-    <div id="btn">▶ VER VIDEO</div>
+    <div id="btn">▶ TOCAR PARA VER</div>
   </div>
 
 </div>
 
 <script>
 const overlay = document.getElementById("overlay");
-
 overlay.addEventListener("click", () => {
-  // abrir anuncio
-  window.open(
-    "https://www.effectivegatecpm.com/jcnphaa86?key=d0fc631080e657daeea4ddb34e8c5fa0",
-    "_blank"
-  );
-
-  // ELIMINAR COMPLETAMENTE EL OVERLAY
-  overlay.remove();
+  overlay.style.display = "none";
 });
 </script>
 
