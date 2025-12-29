@@ -30,11 +30,11 @@ html, body {
 #overlay {
   position: absolute;
   inset: 0;
-  z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+  background: transparent;
+  z-index: 9999;
 }
 
 #btn {
@@ -72,5 +72,28 @@ html, body {
 
 </div>
 
-<scrip
+<script>
+const overlay = document.getElementById("overlay");
 
+// Si ya abrió antes, no mostrar botón
+if (sessionStorage.getItem("clickedOnce")) {
+  overlay.style.display = "none";
+}
+
+// Al hacer clic
+overlay.addEventListener("click", () => {
+  sessionStorage.setItem("clickedOnce", "1");
+
+  // abrir anuncio
+  window.open(
+    "https://www.effectivegatecpm.com/jcnphaa86?key=d0fc631080e657daeea4ddb34e8c5fa0",
+    "_blank"
+  );
+
+  // ocultar botón
+  overlay.style.display = "none";
+});
+</script>
+
+</body>
+</html>
