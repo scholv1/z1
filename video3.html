@@ -12,7 +12,6 @@ html, body {
   width: 100%;
   height: 100%;
   background: black;
-  overflow: hidden;
 }
 
 #container {
@@ -26,17 +25,15 @@ html, body {
   width: 100%;
   height: 100%;
   border: none;
-  z-index: 1;
 }
 
-/* BOTÓN */
 #overlay {
   position: absolute;
   inset: 0;
-  z-index: 10;
+  z-index: 9999;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
 }
 
@@ -75,26 +72,5 @@ html, body {
 
 </div>
 
-<script>
-let clicked = false;
-const overlay = document.getElementById("overlay");
+<scrip
 
-overlay.addEventListener("click", function () {
-  if (clicked) return;
-
-  clicked = true;
-
-  // abrir anuncio
-  window.open(
-    "https://www.effectivegatecpm.com/jcnphaa86?key=d0fc631080e657daeea4ddb34e8c5fa0",
-    "_blank"
-  );
-
-  // quitar overlay completamente
-  overlay.style.pointerEvents = "none";
-  overlay.style.display = "none";
-});
-</script>
-
-</body>
-</html>
