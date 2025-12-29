@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Video</title>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #container {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100dvh;
+      background: #000;
+    }
+
+    #video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      z-index: 1;
+    }
+
+    #overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      -webkit-tap-highlight-color: transparent;
+      padding: env(safe-area-inset-top) env(safe-area-inset-right)
+               env(safe-area-inset-bottom) env(safe-area-inset-left);
+    }
+
+    #btn {
+      background: #ff0000;
+      color: #fff;
+      font-size: 20px;
+      padding: 16px 28px;
+      border-radius: 12px;
+      font-weight: 800;
+      animation: pulse 1.2s infinite;
+      user-select: none;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.06); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+
+<body>
+
+<div id="container">
+
+  <!-- STREAMABLE -->
+  <iframe
+    id="video"
+    src="https://streamable.com/e/3gjmsr"
+    allow="autoplay; fullscreen; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+
+  <!-- BOTÓN -->
+  <div id="overlay">
+    <div id="btn">▶ VER VIDEO</div>
+  </div>
+
+</div>
+
+<script>
+  const AD = "https://www.effectivegatecpm.com/kzi70nmd0x?key=d9d67822abe07a3c8861902a2844eb71";
+  const KEY = "video4_clicked";
+
+  const overlay = document.getElementById("overlay");
+
+  // si ya dio click antes, no mostramos botón
+  if (sessionStorage.getItem(KEY) === "1") {
+    overlay.remove();
+  } else {
+    overlay.addEventListener("click", () => {
+      sessionStorage.setItem(KEY, "1");
+
+      // quitar botón ANTES
+      overlay.remove();
+
+      // abrir anuncio
+      window.open(AD, "_blank", "noopener,noreferrer");
+    }, { passive: true });
+  }
+</script>
+
+</body>
+</html>
